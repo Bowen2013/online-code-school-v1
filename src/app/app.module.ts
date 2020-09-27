@@ -9,7 +9,7 @@ import { AppComponent } from "./app.component";
 import { TopBarComponent } from "./top-bar/top-bar.component";
 import { CodeSchoolComponent } from "./code-school/code-school.component";
 import { LessonOneComponent } from "./lessons/lesson_one/lesson-one.component";
-// import { CodemirrorModule } from '@ctrl/ngx-codemirror';
+import { CodemirrorModule } from '@ctrl/ngx-codemirror';
 
 @NgModule({
   imports: [
@@ -17,7 +17,7 @@ import { LessonOneComponent } from "./lessons/lesson_one/lesson-one.component";
     ReactiveFormsModule,
     MatButtonModule,
     FormsModule,
-    // CodemirrorModule,
+    CodemirrorModule,
     RouterModule.forRoot([{ path: "", component: CodeSchoolComponent }])
   ],
   declarations: [AppComponent, TopBarComponent, CodeSchoolComponent, LessonOneComponent],

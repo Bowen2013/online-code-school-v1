@@ -16,7 +16,7 @@
     "@angular/router": "9.1.12",
     "@ctrl/ngx-codemirror": "^4.0.1",
     "angular-in-memory-web-api": "0.11.0",
-    "codemirror": "5.43.0",
+    "codemirror": "^5.55.0",
     "jasmine-core": "3.5.0",
     "jasmine-marbles": "0.6.0",
     "rxjs": "6.5.5",

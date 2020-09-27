@@ -18,7 +18,10 @@
   </div>
 
   <div class="right-panel">
-
+    <ngx-codemirror
+      [(ngModel)]="content"
+      [options]="options" >
+    </ngx-codemirror>
 
     <button mat-raised-button class="run-btn" (click)='run()'>Run</button>
 
@@ -26,7 +29,7 @@
       <p>Test case: [1, 2], [3,4]</p>
 
       <span *ngIf="isCorrect" class="correct">Congrat! you are right, move to next section</span>
-      <span *ngIf="isWrong" class="wrong">Try again. CLick to see hint</span>
+      <span *ngIf="isWrong" class="wrong">Try again. Click to see hint(@TBD)</span>
     </div>
   </div>
 </div>

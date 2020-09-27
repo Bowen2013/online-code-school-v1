@@ -6,12 +6,30 @@ import { ANSWER_STATUS } from "../../../assets/ui_model";
   templateUrl: "./lesson-one.component.html",
   styleUrls: ["./lesson-one.component.css"]
 })
-export class LessonOneComponent implements AfterViewInit{
+export class LessonOneComponent implements AfterViewInit {
   answerStatus = ANSWER_STATUS.UNSPECIFIED;
+  options = {
+    theme: "idea",
+    mode: "javascript",
+    lineNumbers: true,
+    lineWrapping: true,
+    foldGutter: true,
+    gutters: [
+      "CodeMirror-linenumbers",
+      "CodeMirror-foldgutter",
+      "CodeMirror-lint-markers"
+    ],
+    autoCloseBrackets: true,
+    matchBrackets: true,
+    lint: true
+  };
 
-  ngAfterViewInit() {
+  content = `function add(a, b) {
+// type your function here
 
-  }
+}`
+
+  ngAfterViewInit() {}
 
   get isCorrect(): boolean {
     return this.answerStatus === ANSWER_STATUS.CORRECT;
@@ -22,7 +40,13 @@ export class LessonOneComponent implements AfterViewInit{
   }
 
   run() {
-
+    const codeSnippet = this.content + '\n add(1,2);';
+    const rst = eval(codeSnippet);
+    if (rst === 3) {
+      this.answerStatus = ANSWER_STATUS.CORRECT;
+    } else {
+      this.answerStatus = ANSWER_STATUS.WRONG;
+    }
   }
 }
 
