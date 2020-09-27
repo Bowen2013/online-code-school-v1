@@ -1,0 +1,51 @@
+.code-school-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: relative;
+  width:100vw;
+}
+
+.header {
+  flex: 0 0 50px;
+}
+
+.main {
+  border:1px solid grey;
+
+  flex: 1 1 auto;
+  height: calc(100vh - 100px);
+}
+
+.footer {
+  flex: 0 0 50px;
+}
+
+.header-container {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.main-container {
+}
+
+.footer-container {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 12px 0px;
+}
+
+.footer-container > * {
+  margin-right: 100px;
+}
+
+
+/*
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/
