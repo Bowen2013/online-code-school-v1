@@ -3,19 +3,24 @@ import { BrowserModule } from "@angular/platform-browser";
 import { RouterModule } from "@angular/router";
 import { ReactiveFormsModule } from "@angular/forms";
 import { MatButtonModule } from "@angular/material/button";
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from "./app.component";
 import { TopBarComponent } from "./top-bar/top-bar.component";
 import { CodeSchoolComponent } from "./code-school/code-school.component";
+import { LessonOneComponent } from "./lessons/lesson_one/lesson-one.component";
+// import { CodemirrorModule } from '@ctrl/ngx-codemirror';
 
 @NgModule({
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     MatButtonModule,
+    FormsModule,
+    // CodemirrorModule,
     RouterModule.forRoot([{ path: "", component: CodeSchoolComponent }])
   ],
-  declarations: [AppComponent, TopBarComponent, CodeSchoolComponent],
+  declarations: [AppComponent, TopBarComponent, CodeSchoolComponent, LessonOneComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

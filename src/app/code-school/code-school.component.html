@@ -7,19 +7,67 @@
  
   <div class="main">
     <div class="main-container">
-      <p>hellos</p>
-      <p>hellos</p>
-      <p>hellos</p>
-      <p>hellos</p>
-      <p>hellos</p>
+      <ng-container *ngIf="currentLessonIndex === 0">
+        <lesson-one></lesson-one>
+      </ng-container>
+
+      <ng-container *ngIf="currentLessonIndex === 1">
+        <p>hello 2</p>
+      </ng-container>
+
+      <ng-container *ngIf="currentLessonIndex === 2">
+        <p>hello 3</p>
+      </ng-container>
+
+      <ng-container *ngIf="currentLessonIndex === 3">
+        <p>hello 4</p>
+      </ng-container>
+
+      <ng-container *ngIf="currentLessonIndex === 4">
+        <p>hello 5</p>
+      </ng-container>
+
+      <ng-container *ngIf="currentLessonIndex === 5">
+        <p>hello 6</p>
+      </ng-container>
+
+      <ng-container *ngIf="currentLessonIndex === 6">
+        <p>hello 7</p>
+        <button mat-button (click)="finishLastLessonDummyButtonClicked()">
+          finish last lesson dummy button
+        </button>
+      </ng-container>
+    
     </div>
   </div>
  
   <div class="footer">
     <div class="footer-container">
-      <button mat-raised-button class="back-btn">Back</button>
-      <span>1/7</span>
-      <button mat-raised-button class="next-btn" color="primary">Next</button>
+      <button 
+          mat-raised-button 
+          class="back-btn"
+          [disabled]="isBackButtonDisabled"
+          (click)="backButtonClicked()">
+        Back
+      </button>
+      <span> {{ currentLessonIndex + 1 }} / {{ totalLessonIndex + 1 }}</span>
+      <button
+          *ngIf="!areLessonsFinished"
+          mat-raised-button 
+          class="next-btn" 
+          color="primary"
+          [disabled]="isNextButtonDisabled"
+          (click)="nextButtonClicked()">
+        Next
+      </button>
+      <button
+          *ngIf="areLessonsFinished"
+          mat-raised-button
+          class="finish-btn"
+          color="primary"
+          (click)="finishButtonClicked()">
+        Finish
+      </button>
     </div>
   </div>
 

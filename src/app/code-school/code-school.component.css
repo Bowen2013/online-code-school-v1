@@ -7,17 +7,20 @@
 }
 
 .header {
+  background-color: #E8E8E8;
   flex: 0 0 50px;
 }
 
 .main {
-  border:1px solid grey;
-
+  background-color: #E8E8E8;
+  border:1px solid #E8E8E8;
   flex: 1 1 auto;
   height: calc(100vh - 100px);
+  padding: 12px 24px;
 }
 
 .footer {
+  background-color: #E8E8E8;
   flex: 0 0 50px;
 }
 
@@ -43,6 +46,9 @@
   margin-right: 100px;
 }
 
+.finish-btn {
+  background-color: #4CAF50;
+}
 
 /*
 Copyright Google LLC. All Rights Reserved.
