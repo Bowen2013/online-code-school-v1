@@ -1,7 +1,8 @@
 import { AfterViewInit, Component, ViewChild } from "@angular/core";
 import { ANSWER_STATUS } from "../../../model/ui_model";
+import { CM_EXERCISE_OPTIONS, CM_VIEWONLY_OPTIONS } from "../constants";
 
-const INITIAL_CODE =`function add(a, b) {
+const INITIAL_EXERCISE_CODE =`function add(a, b) {
   // type your function here
 }`;
 
@@ -12,23 +13,15 @@ const INITIAL_CODE =`function add(a, b) {
 })
 export class LessonOneComponent implements AfterViewInit {
   answerStatus = ANSWER_STATUS.UNSPECIFIED;
-  options = {
-    theme: "base16-light",
-    mode: "javascript",
-    lineNumbers: true,
-    lineWrapping: true,
-    foldGutter: true,
-    gutters: [
-      "CodeMirror-linenumbers",
-      "CodeMirror-foldgutter",
-      "CodeMirror-lint-markers"
-    ],
-    autoCloseBrackets: true,
-    matchBrackets: true,
-    lint: true
-  };
+  exerciseOptions = CM_EXERCISE_OPTIONS;
+  viewOnlyOptions = CM_VIEWONLY_OPTIONS;
 
-  content = INITIAL_CODE;
+  viewOnlyContent = `function add(a, b) {
+  // this is a view only code
+  // you can not edit it.
+}`;
+
+  exerciseContent = INITIAL_EXERCISE_CODE;
 
   ngAfterViewInit() {}
 
@@ -41,7 +34,7 @@ export class LessonOneComponent implements AfterViewInit {
   }
 
   run() {
-    const codeSnippet = this.content + '\n add(1,2);';
+    const codeSnippet = this.exerciseContent + '\n add(1,2);';
     const rst = eval(codeSnippet);
     if (rst === 3) {
       this.answerStatus = ANSWER_STATUS.CORRECT;
@@ -51,7 +44,7 @@ export class LessonOneComponent implements AfterViewInit {
   }
 
   reset() {
-    this.content = INITIAL_CODE;
+    this.exerciseContent = INITIAL_EXERCISE_CODE;
   }
 }
 
