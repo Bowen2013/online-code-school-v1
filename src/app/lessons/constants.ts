@@ -26,6 +26,4 @@ export const CM_EXERCISE_OPTIONS = {
     ],
     lint: true,
     readOnly: 'nocursor',
-    height: 'auto',
-    //viewportMargin: 'Infinity',
   };
