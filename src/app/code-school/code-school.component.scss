@@ -1,3 +1,6 @@
+@import '../../styles/variables';
+
+// element that takes full view height
 .code-school-container {
   display: flex;
   flex-direction: column;
@@ -7,20 +10,20 @@
 }
 
 .header {
-  background-color: #E8E8E8;
+  background-color: $grey;
   flex: 0 0 50px;
 }
 
 .main {
-  background-color: #E8E8E8;
-  border:1px solid #E8E8E8;
+  background-color: white;
+  border:1px solid $grey;
   flex: 1 1 auto;
   height: calc(100vh - 100px);
   padding: 12px 24px;
 }
 
 .footer {
-  background-color: #E8E8E8;
+  background-color: $grey;
   flex: 0 0 50px;
 }
 
@@ -29,9 +32,17 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  
+  &>h3 {
+    margin: 10px;
+  }
 }
 
 .main-container {
+  background-color: white;
+  // make sure it occupies full main div.
+  height: 100%;
+  position: relative;
 }
 
 .footer-container {
@@ -39,15 +50,14 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin: 12px 0px;
 }
 
 .footer-container > * {
-  margin-right: 100px;
+  margin: 7px 100px 7px 0px;
 }
 
 .finish-btn {
-  background-color: #4CAF50;
+  background-color: $green;
 }
 
 /*

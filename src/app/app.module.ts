@@ -9,6 +9,7 @@ import { AppComponent } from "./app.component";
 import { TopBarComponent } from "./top-bar/top-bar.component";
 import { CodeSchoolComponent } from "./code-school/code-school.component";
 import { LessonOneComponent } from "./lessons/lesson_one/lesson-one.component";
+import { LessonTemplateComponent } from "./lessons/lesson_template/lesson-template.component";
 import { CodemirrorModule } from '@ctrl/ngx-codemirror';
 
 @NgModule({
@@ -20,7 +21,7 @@ import { CodemirrorModule } from '@ctrl/ngx-codemirror';
     CodemirrorModule,
     RouterModule.forRoot([{ path: "", component: CodeSchoolComponent }])
   ],
-  declarations: [AppComponent, TopBarComponent, CodeSchoolComponent, LessonOneComponent],
+  declarations: [AppComponent, TopBarComponent, CodeSchoolComponent, LessonOneComponent, LessonTemplateComponent,],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

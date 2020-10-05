@@ -1,15 +1,19 @@
 import { AfterViewInit, Component, ViewChild } from "@angular/core";
-import { ANSWER_STATUS } from "../../../assets/ui_model";
+import { ANSWER_STATUS } from "../../../model/ui_model";
+
+const INITIAL_CODE =`function add(a, b) {
+  // type your function here
+}`;
 
 @Component({
   selector: "lesson-one",
   templateUrl: "./lesson-one.component.html",
-  styleUrls: ["./lesson-one.component.css"]
+  styleUrls: ["./lesson-one.component.scss"]
 })
 export class LessonOneComponent implements AfterViewInit {
   answerStatus = ANSWER_STATUS.UNSPECIFIED;
   options = {
-    theme: "idea",
+    theme: "base16-light",
     mode: "javascript",
     lineNumbers: true,
     lineWrapping: true,
@@ -24,10 +28,7 @@ export class LessonOneComponent implements AfterViewInit {
     lint: true
   };
 
-  content = `function add(a, b) {
-// type your function here
-
-}`
+  content = INITIAL_CODE;
 
   ngAfterViewInit() {}
 
@@ -47,6 +48,10 @@ export class LessonOneComponent implements AfterViewInit {
     } else {
       this.answerStatus = ANSWER_STATUS.WRONG;
     }
+  }
+
+  reset() {
+    this.content = INITIAL_CODE;
   }
 }
 

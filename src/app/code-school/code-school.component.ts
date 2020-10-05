@@ -3,7 +3,7 @@ import { Component } from "@angular/core";
 @Component({
   selector: "app-code-school",
   templateUrl: "./code-school.component.html",
-  styleUrls: ["./code-school.component.css"]
+  styleUrls: ["./code-school.component.scss"]
 })
 export class CodeSchoolComponent {
   /* lesson page user currently at */

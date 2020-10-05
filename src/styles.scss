@@ -1,11 +1,19 @@
 /* Global Styles */
-/* @import "~@angular/material/prebuilt-themes/deeppurple-amber.css"; */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+/* @import "~@angular/material/prebuilt-themes/deeppurple-amber.css"; */
 /* @import "~@angular/material/prebuilt-themes/purple-green.css"; */
 /* @import "~@angular/material/prebuilt-themes/pink-bluegrey.css"; */
 
+/* Add application styles & imports to this file! */
+@import './styles/variables';
+
+/* Code-mirror custom themes */
 @import '~codemirror/lib/codemirror.css';
+
 @import '~codemirror/theme/idea.css';
+@import '~codemirror/theme/dracula.css';
+@import '~codemirror/theme/base16-light.css';
+
 @import '~codemirror/addon/fold/foldgutter.css';
 @import '~codemirror/addon/lint/lint.css'; 
 
