@@ -55,7 +55,9 @@
     </button>
 
     <div class="result"> 
-      <p>Test case: [1, 2], [3,4]</p>
+      <p>Test case: {{testCasesString}}</p>
+      <p>Expected Answers: {{correctAnswers}}</p>
+      <p>Your Answers: {{actualAnswers}}</p>
 
       <span *ngIf="isCorrect" class="correct">Congrat! you are right, move to next section.</span>
       <span *ngIf="isWrong" class="wrong">Try again. Click to see hint(@TBD).</span>
