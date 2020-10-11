@@ -72,7 +72,12 @@ export class LessonOneComponent {
   getResultFromFunctionString(fnString, args) {
     const wrapper = s => `{return ${fnString}}`;
     const func = new Function(wrapper(fnString));
-    return func.call(null).apply(null, args);
+
+    const fn = func.call(null);
+    if (typeof fn === 'function') {
+      return fn.apply(null, args);
+    }
+    return undefined;
   }
 
   reset() {
