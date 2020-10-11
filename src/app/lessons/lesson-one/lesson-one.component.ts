@@ -1,6 +1,6 @@
-import { AfterViewInit, Component, ViewChild } from "@angular/core";
+import { Component } from "@angular/core";
 import { ANSWER_STATUS } from "../../../model/ui_model";
-import { CM_EXERCISE_OPTIONS, CM_VIEWONLY_OPTIONS } from "../constants";
+import { CM_EXERCISE_OPTIONS, CM_VIEWONLY_OPTIONS } from "../../../model/constants";
 
 const INITIAL_EXERCISE_CODE =`function add(a, b) {
   // type your function here

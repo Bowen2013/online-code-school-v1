@@ -8,8 +8,8 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from "./app.component";
 import { TopBarComponent } from "./top-bar/top-bar.component";
 import { CodeSchoolComponent } from "./code-school/code-school.component";
-import { LessonOneComponent } from "./lessons/lesson_one/lesson-one.component";
-import { LessonTemplateComponent } from "./lessons/lesson_template/lesson-template.component";
+import { LessonOneComponent } from "./lessons/lesson-one/lesson-one.component";
+import { LessonTemplateComponent } from "./lessons/lesson-template/lesson-template.component";
 import { CodemirrorModule } from '@ctrl/ngx-codemirror';
 
 @NgModule({
