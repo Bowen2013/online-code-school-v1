@@ -34,8 +34,15 @@
   <div rightPanel>
     <h2>Exercise</h2>
 
-    <ngx-codemirror
-      class="exercise-code"
+    <exercise-codemirror
+      [exerciseContent]="exerciseContent"
+      [testCases]="testCases"
+      [testCasesString]="testCasesString"
+      [solutionContent]="solutionContent"
+      (exerciseFinish)="onExerciseFinish()">
+    </exercise-codemirror>
+
+    <!-- <ngx-codemirror
       [(ngModel)]="exerciseContent"
       [options]="exerciseOptions" >
     </ngx-codemirror>
@@ -61,6 +68,6 @@
 
       <span *ngIf="isCorrect" class="correct">Congrat! you are right, move to next section.</span>
       <span *ngIf="isWrong" class="wrong">Try again. Click to see hint(@TBD).</span>
-    </div>
+    </div> -->
   </div>
 </lesson-template>

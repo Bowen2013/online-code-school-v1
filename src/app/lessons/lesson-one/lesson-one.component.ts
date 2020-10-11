@@ -1,13 +1,6 @@
 import { Component } from "@angular/core";
 import { ANSWER_STATUS } from "../../../model/ui_model";
-import { CM_EXERCISE_OPTIONS, CM_VIEWONLY_OPTIONS } from "../../../model/constants";
-
-const INITIAL_EXERCISE_CODE =`function add(a, b) {
-  // type your function here
-}`;
-const CORRECT_EXERCISE_CODE = `function add(a, b) {
-  return a + b;
-}`;
+import { CM_EXERCISE_OPTIONS, CM_VIEWONLY_OPTIONS } from "../../../model/ui_constants";
 
 @Component({
   selector: "lesson-one",
@@ -24,71 +17,21 @@ export class LessonOneComponent {
   // you can not edit it.
 }`;
 
-  exerciseContent = INITIAL_EXERCISE_CODE;
-  actualAnswers = '';
-  correctAnswers = '';
+  /** Input for exercise */
+  exerciseContent = `function add(a, b) {
+  // type your function here
+}`;
+  solutionContent = `function add(a, b) {
+  return a + b;
+}`;
   testCases = [[1,2], [3,4], [-3, -4]];
   testCasesString = '[1, 2], [3, 4], [-3, -4]';
 
 
-  get isCorrect(): boolean {
-    return this.answerStatus === ANSWER_STATUS.CORRECT;
+  onExerciseFinish() {
+    // emit value to code school component
   }
 
-  get isWrong(): boolean {
-    return this.answerStatus === ANSWER_STATUS.WRONG;
-  }
-
-  run() {
-    this.clearPrevious();
-    let isWrong = false;
-    for(let i = 0; i < this.testCases.length; i++) {
-      const arg = this.testCases[i];
-      const correctAns = this.getResultFromFunctionString(CORRECT_EXERCISE_CODE, arg);
-      const actualAns = this.getResultFromFunctionString(this.exerciseContent, arg);
-      this.correctAnswers += `${correctAns}${i === this.testCases.length - 1 ? '' : ', '}`;
-      this.actualAnswers += `${actualAns}${i === this.testCases.length - 1 ? '' : ', '}`;
-      if (correctAns !== actualAns) {
-        isWrong = true;
-      }
-    }
-    this.answerStatus = isWrong ? ANSWER_STATUS.WRONG : ANSWER_STATUS.CORRECT;
-  }
-
-  clearPrevious() {
-    this.answerStatus = ANSWER_STATUS.UNSPECIFIED;
-    this.actualAnswers = '';
-    this.correctAnswers = '';
-  }
-
-/**
- * How it works?
- * fnString: 
- *   function foo(a, b) {
- *    return a + b;
- *   }
- * wrapper {return function foo(a, b) {return a + b;};}
- * func: function anonymous() {
- *    return function foo(){
- *     };
- * }
- * call(null) => foo(a, b)
- * apply(null, args) => invoke foo with args
- */
-  getResultFromFunctionString(fnString, args) {
-    const wrapper = s => `{return ${fnString}}`;
-    const func = new Function(wrapper(fnString));
-
-    const fn = func.call(null);
-    if (typeof fn === 'function') {
-      return fn.apply(null, args);
-    }
-    return undefined;
-  }
-
-  reset() {
-    this.exerciseContent = INITIAL_EXERCISE_CODE;
-  }
 }
 
 /*
