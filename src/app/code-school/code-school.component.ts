@@ -20,6 +20,7 @@ export class CodeSchoolComponent {
   }
 
   get isNextButtonDisabled(): boolean {
+    // disable when current lesson is not finished.
     return !this.finishedLessons[this.currentLessonIndex];
   }
 
