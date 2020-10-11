@@ -47,7 +47,7 @@ export class ExerciseCodemirrorComponent {
         arg
       );
       const actualAns = this.getResultFromFunctionString(
-        this.exerciseContent,
+        this.exerciseContentInternal,
         arg
       );
       this.solutionAnswers += `${solutionAns}${
@@ -100,7 +100,7 @@ export class ExerciseCodemirrorComponent {
   }
 
   reset() {
-    this.exerciseContent = this.exerciseContentInitial;
+    this.exerciseContentInternal = this.exerciseContentInitial;
   }
 }
 
