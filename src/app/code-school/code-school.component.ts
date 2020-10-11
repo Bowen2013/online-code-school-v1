@@ -20,11 +20,11 @@ export class CodeSchoolComponent {
   }
 
   get isNextButtonDisabled(): boolean {
-    return this.currentLessonIndex === this.totalLessonIndex;
+    return !this.finishedLessons[this.currentLessonIndex];
   }
 
   /** Return boolean whether user can finish all the lessons */
-  get areLessonsFinished(): boolean {
+  get allLessonsFinished(): boolean {
     // as long as user is on last lesson, user should be able to finish it
     if (this.canSkipQuestion) {
       return this.currentLessonIndex === this.totalLessonIndex;
@@ -55,6 +55,10 @@ export class CodeSchoolComponent {
 
   finishButtonClicked() {
     alert('showing post survey');
+  }
+
+  onExerciseFinish(event: number) {
+    this.finishedLessons[event] = true;
   }
 }
 

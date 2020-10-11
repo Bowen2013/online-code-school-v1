@@ -1,14 +1,14 @@
 import { Component, EventEmitter, Output } from "@angular/core";
 import { CM_VIEWONLY_OPTIONS } from "../../../model/ui_constants";
 
-const LESSON_ONE_INDEX = 0;
+const LESSON_TWO_INDEX = 1;
 
 @Component({
-  selector: "lesson-one",
-  templateUrl: "./lesson-one.component.html",
-  styleUrls: ["./lesson-one.component.scss"]
+  selector: "lesson-two",
+  templateUrl: "./lesson-two.component.html",
+  styleUrls: ["./lesson-two.component.scss"]
 })
-export class LessonOneComponent {
+export class LessonTwoComponent {
  @Output() exerciseFinish = new EventEmitter<number>();
 
   viewOnlyOptions = CM_VIEWONLY_OPTIONS;
@@ -30,7 +30,7 @@ export class LessonOneComponent {
 
   onExerciseFinish() {
     // emit value to code school component
-    this.exerciseFinish.emit(LESSON_ONE_INDEX);
+    this.exerciseFinish.emit(LESSON_TWO_INDEX);
   }
 
 }

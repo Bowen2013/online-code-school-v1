@@ -10,6 +10,7 @@ import { TopBarComponent } from "./top-bar/top-bar.component";
 import { CodeSchoolComponent } from "./code-school/code-school.component";
 import { ExerciseCodemirrorComponent } from "./exercise-codemirror/exercise-codemirror.component";
 import { LessonOneComponent } from "./lessons/lesson-one/lesson-one.component";
+import { LessonTwoComponent } from "./lessons/lesson-two/lesson-two.component";
 import { LessonTemplateComponent } from "./lessons/lesson-template/lesson-template.component";
 import { CodemirrorModule } from "@ctrl/ngx-codemirror";
 
@@ -28,6 +29,7 @@ import { CodemirrorModule } from "@ctrl/ngx-codemirror";
     CodeSchoolComponent,
     LessonOneComponent,
     LessonTemplateComponent,
+    LessonTwoComponent,
     ExerciseCodemirrorComponent
   ],
   bootstrap: [AppComponent]

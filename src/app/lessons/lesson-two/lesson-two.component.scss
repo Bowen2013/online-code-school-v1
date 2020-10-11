@@ -1,0 +1,6 @@
+@import '../../../styles/variables';
+
+// change the height for the viewonly codemirror 
+::ng-deep .viewonly-1 > .CodeMirror{
+  height: auto;
+}
