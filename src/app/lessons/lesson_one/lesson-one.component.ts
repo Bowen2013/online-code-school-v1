@@ -63,11 +63,17 @@ export class LessonOneComponent {
 
 /**
  * How it works?
- * input fnString e.g. function foo(a, b) {return a + b;}
+ * fnString: 
+ *   function foo(a, b) {
+ *    return a + b;
+ *   }
  * wrapper {return function foo(a, b) {return a + b;};}
- * func: function anonymous() {return function foo()...}
- * call => foo(a, b)
- * apply => invoke foo with args
+ * func: function anonymous() {
+ *    return function foo(){
+ *     };
+ * }
+ * call(null) => foo(a, b)
+ * apply(null, args) => invoke foo with args
  */
   getResultFromFunctionString(fnString, args) {
     const wrapper = s => `{return ${fnString}}`;
