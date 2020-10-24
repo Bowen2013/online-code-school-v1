@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output } from "@angular/core";
 import { CM_VIEWONLY_OPTIONS } from "../../../model/ui_constants";
 
-const LESSON_TWO_INDEX = 1;
+const LESSON_TWO_INDEX = 2;
 
 @Component({
   selector: "lesson-two",
@@ -9,7 +9,7 @@ const LESSON_TWO_INDEX = 1;
   styleUrls: ["./lesson-two.component.scss"]
 })
 export class LessonTwoComponent {
- @Output() exerciseFinish = new EventEmitter<number>();
+  @Output() exerciseFinish = new EventEmitter<number>();
 
   viewOnlyOptions = CM_VIEWONLY_OPTIONS;
   viewOnlyContent = `function add(a, b) {
@@ -24,15 +24,13 @@ export class LessonTwoComponent {
   solutionContent = `function add(a, b) {
   return a + b;
 }`;
-  testCases = [[1,2], [3,4], [-3, -4]];
-  testCasesString = '[1, 2], [3, 4], [-3, -4]';
-
+  testCases = [[1, 2], [3, 4], [-3, -4]];
+  testCasesString = "[1, 2], [3, 4], [-3, -4]";
 
   onExerciseFinish() {
     // emit value to code school component
     this.exerciseFinish.emit(LESSON_TWO_INDEX);
   }
-
 }
 
 /*

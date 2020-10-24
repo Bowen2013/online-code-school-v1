@@ -8,15 +8,17 @@
 	<div class="main">
 		<div class="main-container">
 			<ng-container *ngIf="currentLessonIndex === 0">
-				<lesson-one (exerciseFinish)="onExerciseFinish($event)"></lesson-one>
+				<lesson-preface (exerciseFinish)="onExerciseFinish($event)">
+				</lesson-preface>
 			</ng-container>
 
 			<ng-container *ngIf="currentLessonIndex === 1">
-				<lesson-two (exerciseFinish)="onExerciseFinish($event)"></lesson-two>
+				<lesson-one (exerciseFinish)="onExerciseFinish($event)">
+				</lesson-one>
 			</ng-container>
 
 			<ng-container *ngIf="currentLessonIndex === 2">
-				<p>hello 3</p>
+				<lesson-two (exerciseFinish)="onExerciseFinish($event)"></lesson-two>
 			</ng-container>
 
 			<ng-container *ngIf="currentLessonIndex === 3">
@@ -50,7 +52,7 @@
           (click)="backButtonClicked()">
         Back
       </button>
-			<span> {{ currentLessonIndex + 1 }} / {{ totalLessonIndex + 1 }}</span>
+			<span> {{ currentLessonIndex }} / {{ totalLessonIndex }}</span>
 			<button
           *ngIf="!allLessonsFinished"
           mat-raised-button
