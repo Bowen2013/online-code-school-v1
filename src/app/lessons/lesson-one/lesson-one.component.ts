@@ -6,9 +6,9 @@ import {
 import { ANSWER_STATUS } from "../../../model/ui_model";
 
 const LESSON_ONE_INDEX = 1;
-const INITIAL_EXERCISE = `let drink = 'pepsi';
+const INITIAL_EXERCISE = `let drink = 'Pepsi';
 console.log('I changed my mind');
-drink = 'coke';
+drink = 'Coke';
 
 const entree = 'Tacos';
 console.log('I changed my mind again');
@@ -26,6 +26,7 @@ export class LessonOneComponent {
   viewOnlyOptions = CM_VIEWONLY_OPTIONS;
   exerciseOptions = CM_EXERCISE_OPTIONS;
   answerStatus = ANSWER_STATUS.UNSPECIFIED;
+  errorMessage = "";
 
   /** View only code mirror */
   viewOnlyContent1 = `let meal = 'Enchiladas';
@@ -42,13 +43,14 @@ console.log(price); // Output: 350
 
   viewOnlyContent2 = `const myName = 'Gilberto';
 console.log(myName); // Output: Gilberto
+myName = 'John'; // <-- TypeError: Assignment to constant variable.
 `;
 
   /** Exercise code mirror */
   exerciseContent = INITIAL_EXERCISE;
-  solutionContent = `let drink = 'pepsi';
+  solutionContent = `let drink = 'Pepsi';
 console.log('I changed my mind');
-drink = 'coke';
+drink = 'Coke';
 
 let entree = 'Tacos';
 console.log('I changed my mind again');
@@ -65,14 +67,24 @@ entree = 'Burritos';
   }
 
   submit() {
+    this.clearPrevious();
     if (this.exerciseContent === this.solutionContent) {
+      this.answerStatus = ANSWER_STATUS.CORRECT;
       this.onExerciseFinish();
     } else {
+      this.answerStatus = ANSWER_STATUS.WRONG;
+      this.errorMessage = "Make sure to change only one line";
     }
   }
 
   reset() {
+    this.clearPrevious();
     this.exerciseContent = INITIAL_EXERCISE;
+  }
+
+  clearPrevious() {
+    this.answerStatus = ANSWER_STATUS.UNSPECIFIED;
+    this.errorMessage = "";
   }
 
   onExerciseFinish() {

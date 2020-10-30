@@ -37,20 +37,20 @@
 			However, a <code>const</code> variable cannot be reassigned because it is constant.
 		</p>
 
+		<ngx-codemirror class="viewonly-2" [(ngModel)]="viewOnlyContent2" [options]="viewOnlyOptions">
+		</ngx-codemirror>
+
 		<p>
 			If you try to reassign a<code>const</code> variable, you’ll get a <code>TypeError</code>.
 
 			Constant variables must be assigned a value when declared. If you try to declare a <code>const</code>
 			variable without a value, you’ll get a <code>SyntaxError</code>.
 		</p>
-
-		<ngx-codemirror class="viewonly-2" [(ngModel)]="viewOnlyContent2" [options]="viewOnlyOptions">
-		</ngx-codemirror>
 	</div>
 
 	<div rightPanel>
 		<h2>Exercise</h2>
-		<p>Can you fix the error in the code below?</p>
+		<p>The code below is throwing error, can you fix it with one line change?</p>
 
 		<ngx-codemirror [(ngModel)]="exerciseContent" [options]="exerciseOptions">
 		</ngx-codemirror>
@@ -71,8 +71,8 @@
     </button>
 
 		<div class="result">
-			<span *ngIf="isCorrect" class="correct">Congrat! you are right, move to next section.</span>
-			<span *ngIf="isWrong" class="wrong">Try again. Click to see hint(@TBD).</span>
+			<span *ngIf="isCorrect" class="correct">Congrat! Click Next below to go to next lesson.</span>
+			<span *ngIf="isWrong" class="wrong">Try again. {{errorMessage}}.</span>
 		</div>
 
 	</div>
