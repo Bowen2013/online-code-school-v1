@@ -12,12 +12,12 @@
 				</lesson-preface>
 			</ng-container>
 
-			<ng-container *ngIf="currentLessonIndex === 1">
+			<ng-container *ngIf="currentLessonIndex === 2">
 				<lesson-one (exerciseFinish)="onExerciseFinish($event)">
 				</lesson-one>
 			</ng-container>
 
-			<ng-container *ngIf="currentLessonIndex === 2">
+			<ng-container *ngIf="currentLessonIndex === 1">
 				<lesson-two (exerciseFinish)="onExerciseFinish($event)"></lesson-two>
 			</ng-container>
 

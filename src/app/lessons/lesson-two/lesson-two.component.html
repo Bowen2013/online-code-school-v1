@@ -1,73 +1,68 @@
 <lesson-template>
 
-  <div leftPanel>
-    <h2>Block and Scope</h2>
+	<div leftPanel>
+		<h2>String Interpolation</h2>
+		<p>
+			In the ES6 version of JavaScript, we can insert, or interpolate, variables into strings using template
+			literals. Check out the following example where a template literal is used to log strings together:
+		</p>
 
+		<ngx-codemirror class="viewonly-1" [(ngModel)]="viewOnlyContent" [options]="viewOnlyOptions">
+		</ngx-codemirror>
 
-    <p>
-      It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-    </p>
-    <p>
-      It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-    </p>
+		<p>Notice that:</p>
+		<ul>
+			<li>a template literal is wrapped by backticks <code>`</code> (this key is usually located on the top of
+				your keyboard,
+				left of the <code>1</code> key).
+			</li>
+			<li>Inside the template literal, you’ll see a placeholder, <code>{{myPetVariable}}</code>. The value of
+				template
+				literal.</li>
+			<li>When we interpolate <code>{{myPetVariable}}</code>, the output we print is the string: <code>'I own a
+				pet armadillo.'</code>
+			</li>
+		</ul>
 
-    <ngx-codemirror
-      class="viewonly-1"
-      [(ngModel)]="viewOnlyContent"
-      [options]="viewOnlyOptions" >
-    </ngx-codemirror>
+		<p>One of the biggest benefits to using template literals is the readability of the code. Using template
+			literals, you can more easily tell what the new string will be. You also don’t have to worry about escaping
+			double quotes or single quotes.</p>
+	</div>
 
-    <p>
-      It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-    </p>
-    <p>
-      It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-    </p>
-    <p>
-      It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-    </p>
-    <p>
-      It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-    </p>
-  </div>
+	<div rightPanel>
+		<h2>Exercise</h2>
+		<ol>
+			<li>Create a variable called <code>myName</code> and assign it your name.</li>
+			<li>Create a variable called <code>myCity</code> and assign it your favorite city’s name.</li>
+			<li>Use a single template literal to interpolate your variables into the sentence below. Use console.log()
+				to print your sentence to the console in the following format:
+				<code>My name is NAME. My favorite city is CITY</code>. Replace NAME and CITY in the string above by
+				interpolating the values saved to myName and myCity.</li>
+		</ol>
 
-  <div rightPanel>
-    <h2>Exercise</h2>
+		<ngx-codemirror [(ngModel)]="exerciseContent" [options]="exerciseOptions">
+		</ngx-codemirror>
 
-    <exercise-codemirror
-      [exerciseContent]="exerciseContent"
-      [testCases]="testCases"
-      [testCasesString]="testCasesString"
-      [solutionContent]="solutionContent"
-      (exerciseFinish)="onExerciseFinish()">
-    </exercise-codemirror>
-
-    <!-- <ngx-codemirror
-      [(ngModel)]="exerciseContent"
-      [options]="exerciseOptions" >
-    </ngx-codemirror>
-
-    <button
+		<button
         color="primary"
-        mat-raised-button 
-        class="run-btn" 
-        (click)='run()'>
-      Run
+        mat-raised-button
+        class="submit-btn"
+        (click)='submit()'>
+      Submit
     </button>
-    <button 
-        mat-raised-button 
-        class="reset-btn" 
+
+		<button
+        mat-raised-button
+        class="reset-btn"
         (click)='reset()'>
       Reset
     </button>
 
-    <div class="result"> 
-      <p>Test case: {{testCasesString}}</p>
-      <p>Expected Answers: {{correctAnswers}}</p>
-      <p>Your Answers: {{actualAnswers}}</p>
+		<div class="result">
+			<span *ngIf="isCorrect" class="correct">Congrat! Click Next below to go to next lesson.</span>
+			<span *ngIf="isWrong" class="wrong">Try again. {{errorMessage}}</span>
+		</div>
 
-      <span *ngIf="isCorrect" class="correct">Congrat! you are right, move to next section.</span>
-      <span *ngIf="isWrong" class="wrong">Try again. Click to see hint(@TBD).</span>
-    </div> -->
-  </div>
+
+	</div>
 </lesson-template>
