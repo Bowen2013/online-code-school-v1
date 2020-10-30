@@ -1,7 +1,19 @@
 import { Component, EventEmitter, Output } from "@angular/core";
-import { CM_VIEWONLY_OPTIONS } from "../../../model/ui_constants";
+import {
+  CM_EXERCISE_OPTIONS,
+  CM_VIEWONLY_OPTIONS
+} from "../../../model/ui_constants";
+import { ANSWER_STATUS } from "../../../model/ui_model";
 
 const LESSON_ONE_INDEX = 1;
+const INITIAL_EXERCISE = `let drink = 'pepsi';
+console.log('I changed my mind');
+drink = 'coke';
+
+const entree = 'Tacos';
+console.log('I changed my mind again');
+entree = 'Burritos';
+`;
 
 @Component({
   selector: "lesson-one",
@@ -12,6 +24,10 @@ export class LessonOneComponent {
   @Output() exerciseFinish = new EventEmitter<number>();
 
   viewOnlyOptions = CM_VIEWONLY_OPTIONS;
+  exerciseOptions = CM_EXERCISE_OPTIONS;
+  answerStatus = ANSWER_STATUS.UNSPECIFIED;
+
+  /** View only code mirror */
   viewOnlyContent1 = `let meal = 'Enchiladas';
 console.log(meal); // Output: Enchiladas
 meal = 'Burrito';
@@ -24,15 +40,40 @@ price = 350;
 console.log(price); // Output: 350
 `;
 
-  /** Input for exercise */
-  exerciseContent = `function add(a, b) {
-  // type your function here
-}`;
-  solutionContent = `function add(a, b) {
-  return a + b;
-}`;
-  testCases = [[1, 2], [3, 4], [-3, -4]];
-  testCasesString = "[1, 2], [3, 4], [-3, -4]";
+  viewOnlyContent2 = `const myName = 'Gilberto';
+console.log(myName); // Output: Gilberto
+`;
+
+  /** Exercise code mirror */
+  exerciseContent = INITIAL_EXERCISE;
+  solutionContent = `let drink = 'pepsi';
+console.log('I changed my mind');
+drink = 'coke';
+
+let entree = 'Tacos';
+console.log('I changed my mind again');
+entree = 'Burritos';
+`;
+
+  /** Exercise related logic */
+  get isCorrect(): boolean {
+    return this.answerStatus === ANSWER_STATUS.CORRECT;
+  }
+
+  get isWrong(): boolean {
+    return this.answerStatus === ANSWER_STATUS.WRONG;
+  }
+
+  submit() {
+    if (this.exerciseContent === this.solutionContent) {
+      this.onExerciseFinish();
+    } else {
+    }
+  }
+
+  reset() {
+    this.exerciseContent = INITIAL_EXERCISE;
+  }
 
   onExerciseFinish() {
     // emit value to code school component

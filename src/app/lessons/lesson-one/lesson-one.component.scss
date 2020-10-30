@@ -1,10 +1,11 @@
 @import "../../../styles/variables";
 
 // change the height for the viewonly codemirror
-::ng-deep .viewonly-1 > .CodeMirror {
+::ng-deep ngx-codemirror > .CodeMirror {
   height: auto;
 }
 
-::ng-deep .viewonly-2 > .CodeMirror {
-  height: auto;
+.submit-btn {
+  margin-top: 24px;
+  margin-right: 8px;
 }
