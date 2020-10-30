@@ -12,10 +12,17 @@ export class LessonOneComponent {
   @Output() exerciseFinish = new EventEmitter<number>();
 
   viewOnlyOptions = CM_VIEWONLY_OPTIONS;
-  viewOnlyContent = `function add(a, b) {
-  // this is a view only code
-  // you can not edit it.
-}`;
+  viewOnlyContent1 = `let meal = 'Enchiladas';
+console.log(meal); // Output: Enchiladas
+meal = 'Burrito';
+console.log(meal); // Output: Burrito
+
+// we can declare a variable without assigning the variable a value. In such a case, the variable will be automatically initialized with a value of undefined
+let price;
+console.log(price); // Output: undefined
+price = 350;
+console.log(price); // Output: 350
+`;
 
   /** Input for exercise */
   exerciseContent = `function add(a, b) {

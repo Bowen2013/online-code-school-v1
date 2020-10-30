@@ -1,48 +1,59 @@
 <lesson-template>
 
-  <div leftPanel>s
-    <h2>Introduction</h2>
+	<div leftPanel>
+		<h2>Introduction</h2>
 
 
-    <p>
-      In programming, a variable is a container for a value. You can think of variables as little containers for information that live in a computer’s memory. Information stored in variables, such as a username, account number, or even personalized greeting can then be found in memory.
-    </p>
-    <p>
-     In JavaScript ES6 version, there are two keywords <code>let</code> and <code>const</code>, to create or declare variables.
-    </p>
+		<p>
+			In programming, a variable is a container for a value. You can think of variables as little containers for
+			information that live in a computer’s memory. Information stored in variables, such as a username, account
+			number, or even personalized greeting can then be found in memory.
+		</p>
+		<p>
+			In JavaScript ES6 version, there are two keywords <code>let</code> and <code>const</code>, to create or
+			declare variables. There are a few general rules for naming variables:
+		</p>
+		<ul>
+			<li>Variable names cannot start with numbers.</li>
+			<li>Variable names are case sensitive, so myName and myname would be different variables. It is bad practice
+				to create two variables that have the same name using different cases.</li>
+			<li>Variable names cannot be the same as keywords. For a comprehensive list of keywords check out
+				<a target="_blank"
+					href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Keywords">
+					MDN’s keyword documentation
+				</a>.
+			</li>
+		</ul>
 
-    <ngx-codemirror
-      class="viewonly-1"
-      [(ngModel)]="viewOnlyContent"
-      [options]="viewOnlyOptions" >
-    </ngx-codemirror>
+		<p>The <code>let</code> keyword signals that the variable can be reassigned a different value. Take a look at
+			the example:</p>
 
-    <p>
-      It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-    </p>
-    <p>
-      It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-    </p>
-    <p>
-      It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-    </p>
-    <p>
-      It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-    </p>
-  </div>
+		<ngx-codemirror class="viewonly-1" [(ngModel)]="viewOnlyContent1" [options]="viewOnlyOptions">
+		</ngx-codemirror>
 
-  <div rightPanel>
-    <h2>Exercise</h2>
+		<p>
+			The way you declare a <code>const</code> variable and assign a value to it follows the same structure as
+			<code>let</code>
 
-    <exercise-codemirror
-      [exerciseContent]="exerciseContent"
-      [testCases]="testCases"
-      [testCasesString]="testCasesString"
-      [solutionContent]="solutionContent"
-      (exerciseFinish)="onExerciseFinish()">
-    </exercise-codemirror>
+			However, a <code>const</code> variable cannot be reassigned because it is constant. If you try to reassign a
+			<code>const</code> variable, you’ll get a <code>TypeError</code>.
 
-    <!-- <ngx-codemirror
+			Constant variables must be assigned a value when declared. If you try to declare a <code>const</code>
+			variable without a value, you’ll get a <code>SyntaxError</code>.
+		</p>
+
+
+	</div>
+
+	<div rightPanel>
+		<h2>Exercise</h2>
+
+		<exercise-codemirror [exerciseContent]="exerciseContent" [testCases]="testCases"
+			[testCasesString]="testCasesString" [solutionContent]="solutionContent"
+			(exerciseFinish)="onExerciseFinish()">
+		</exercise-codemirror>
+
+		<!-- <ngx-codemirror
       [(ngModel)]="exerciseContent"
       [options]="exerciseOptions" >
     </ngx-codemirror>
@@ -69,5 +80,5 @@
       <span *ngIf="isCorrect" class="correct">Congrat! you are right, move to next section.</span>
       <span *ngIf="isWrong" class="wrong">Try again. Click to see hint(@TBD).</span>
     </div> -->
-  </div>
+	</div>
 </lesson-template>
