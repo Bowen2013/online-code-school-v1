@@ -21,12 +21,12 @@
 				<lesson-two (exerciseFinish)="onExerciseFinish($event)"></lesson-two>
 			</ng-container>
 
-			<ng-container *ngIf="currentLessonIndex === 1">
+			<ng-container *ngIf="currentLessonIndex === 3">
 				<lesson-three (exerciseFinish)="onExerciseFinish($event)"></lesson-three>
 			</ng-container>
 
-			<ng-container *ngIf="currentLessonIndex === 4">
-				<p>hello 5</p>
+			<ng-container *ngIf="currentLessonIndex === 1">
+				<lesson-four (exerciseFinish)="onExerciseFinish($event)"></lesson-four>
 			</ng-container>
 
 			<ng-container *ngIf="currentLessonIndex === 5">

@@ -15,6 +15,7 @@ import { LessonTemplateComponent } from "./lessons/lesson-template/lesson-templa
 import { CodemirrorModule } from "@ctrl/ngx-codemirror";
 import { LessonPrefaceComponent } from "./lessons/lesson-preface/lesson-preface.component";
 import { LessonThreeComponent } from "./lessons/lesson-three/lesson-three.component";
+import { LessonFourComponent } from './lessons/lesson-four/lesson-four.component';
 
 @NgModule({
   imports: [
@@ -34,7 +35,8 @@ import { LessonThreeComponent } from "./lessons/lesson-three/lesson-three.compon
     LessonTwoComponent,
     ExerciseCodemirrorComponent,
     LessonPrefaceComponent,
-    LessonThreeComponent
+    LessonThreeComponent,
+    LessonFourComponent
   ],
   bootstrap: [AppComponent]
 })
