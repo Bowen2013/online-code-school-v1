@@ -7,8 +7,8 @@ import { ANSWER_STATUS } from "../../../model/ui_model";
 import { getResultFromFunctionString } from "../../../shared/functionStringBuilder";
 
 const LESSON_FOUR_INDEX = 4;
-const INITIAL_EXERCISE = `const makeShoppingList = () => {
-
+const INITIAL_EXERCISE = `function makeShoppingList(item1 = 'milk', item2 = 'bread', item3 = 'eggs') {
+  return \`Remember to buy \${item1}, \${item2}, \${item3}\`;
 }
 
 /**
@@ -45,14 +45,6 @@ export class LessonFourComponent {
   let area = width * height;
   return area;
 };
-`;
-
-  viewOnlyContent3 = `function greeting (name = 'stranger') {
-  console.log(\`Hello, \${name}!\`)
-}
-
-greeting('Nick') // Output: Hello, Nick!
-greeting() // Output: Hello, stranger!
 `;
 
   /** Input for exercise */
