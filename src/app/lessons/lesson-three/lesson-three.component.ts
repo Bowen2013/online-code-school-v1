@@ -82,6 +82,7 @@ greeting() // Output: Hello, stranger!
       this.errorMessage = `
       Expected result is: ${solutionAns} while
       Actual result is: ${actualAns}`;
+      return;
     }
 
     actualAns = getResultFromFunctionString(this.exerciseContent, [
