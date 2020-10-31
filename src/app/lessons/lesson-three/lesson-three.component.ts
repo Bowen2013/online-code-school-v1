@@ -28,8 +28,6 @@ const INITIAL_EXERCISE = `function makeShoppingList() {
 export class LessonThreeComponent {
   @Output() exerciseFinish = new EventEmitter<number>();
 
-  myPetVariable = "${myPet}";
-
   viewOnlyOptions = CM_VIEWONLY_OPTIONS;
   exerciseOptions = CM_EXERCISE_OPTIONS;
   answerStatus = ANSWER_STATUS.UNSPECIFIED;

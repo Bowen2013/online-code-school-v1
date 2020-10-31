@@ -7,7 +7,7 @@ import { ANSWER_STATUS } from "../../../model/ui_model";
 import { getResultFromFunctionString } from "../../../shared/functionStringBuilder";
 
 const LESSON_FOUR_INDEX = 4;
-const INITIAL_EXERCISE = `const makeShoppingList = () {
+const INITIAL_EXERCISE = `const makeShoppingList = () => {
 
 }
 
@@ -27,7 +27,7 @@ const INITIAL_EXERCISE = `const makeShoppingList = () {
 export class LessonFourComponent {
   @Output() exerciseFinish = new EventEmitter<number>();
 
-  myPetVariable = "${myPet}";
+  bracketVariable = "{}";
 
   viewOnlyOptions = CM_VIEWONLY_OPTIONS;
   exerciseOptions = CM_EXERCISE_OPTIONS;
@@ -35,18 +35,16 @@ export class LessonFourComponent {
   errorMessage = "";
 
   /** View only code mirror */
-  viewOnlyContent1 = `function getGreetings() {
-  return "Hello world";
-}
-
-getGreetings();
+  viewOnlyContent1 = `const calculateArea = function(width, height) {
+    const area = width * height;
+    return area;
+  }
 `;
 
-  viewOnlyContent2 = `function calculateArea(width, height) {
-  return width * height;
-}
-
-calculateArea(5, 3); // Output: 15
+  viewOnlyContent2 = `const rectangleArea = (width, height) => {
+  let area = width * height;
+  return area;
+};
 `;
 
   viewOnlyContent3 = `function greeting (name = 'stranger') {

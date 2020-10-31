@@ -1,52 +1,54 @@
 <lesson-template>
 
 	<div leftPanel>
-		<h2>Functions</h2>
-		<p>In JavaScript, there are many ways to create a function. One way to create a function is by using a function
-			declaration.</p>
+		<h2>Functions continued</h2>
+		<p>
+			Another way to define a function is to use a function expression. To define a function inside an expression,
+			we can use the <code>function</code> keyword. In a function expression, the function name is usually
+			omitted. A function with no name is called an anonymous function. A function expression is often stored in a
+			variable in order to refer to it.
+		</p>
+		<p>Consider the following function expression:</p>
 
 		<ngx-codemirror class="viewonly-1" [(ngModel)]="viewOnlyContent1" [options]="viewOnlyOptions">
 		</ngx-codemirror>
 
-		<p>However, some functions can take inputs and use the inputs to perform a task. When declaring a function, we
-			can specify its parameters. Parameters allow functions to accept input(s) and perform a task using the
-			input(s). We use parameters as placeholders for information that will be passed to the function when it is
-			called.</p>
+		<p>To declare a function expression:</p>
 
-		<ngx-codemirror class="viewonly-1" [(ngModel)]="viewOnlyContent2" [options]="viewOnlyOptions">
-		</ngx-codemirror>
+		<ol>
+			<li>Declare a variable to make the variable’s name be the name, or identifier, of your function. Since the
+				release of ES6, it is common practice to use <code>const</code> as the keyword to declare the variable.
+			</li>
+			<li>Assign as that variable’s value an anonymous function created by using the <code>function</code> keyword
+				followed by a set of parentheses with possible parameters. Then a set of curly braces that contain the
+				function body.</li>
+		</ol>
 
-		<p>In the diagram above, <code>calculateArea()</code>, computes the area of a rectangle, based on two inputs,
-			<code>width</code> and <code>height</code>. The parameters are specified between the parenthesis as
-			<code>width</code> and <code>height</code>, and inside the function
-			body, they act just like regular variables. <code>width</code> and <code>height</code> act as placeholders
-			for values that will be
-			multiplied together.
+		<p>
+			ES6 introduced arrow function syntax, a shorter way to write functions by using the special “fat arrow”
+			<code>() =></code> notation.
 		</p>
 
-		<p>One of the features added in ES6 is the ability to use default parameters. Default parameters allow
-			parameters to have a predetermined value in case there is no argument passed into the function or if the
-			argument is undefined when called.</p>
+		<p>
+			Arrow functions remove the need to type out the keyword <code>function</code> every time you need to create
+			a function.
+			Instead, you first include the parameters inside the <code>( )</code> and then add an arrow => that points
+			to the function body surrounded in <code>{{bracketVariable}}</code> like this:
+		</p>
 
-		<ngx-codemirror class="viewonly-1" [(ngModel)]="viewOnlyContent3" [options]="viewOnlyOptions">
+		<ngx-codemirror class="viewonly-2" [(ngModel)]="viewOnlyContent2" [options]="viewOnlyOptions">
 		</ngx-codemirror>
 
-		<ul>
-			<li>In the example above, we used the <code>=</code> operator to assign the parameter <code>name</code> a
-				default value
-				of <code>'stranger'</code>.
-				This is useful to have in case we ever want to include a non-personalized default greeting!</li>
-			<li>When the code calls <code>greeting('Nick')</code> the value of the argument is passed in and,
-				<code>'Nick'</code>, will override the default parameter of <code>'stranger'</code> to log <code>'Hello,
-				Nick!'</code> to the console.</li>
-			<li>When there isn’t an argument passed into <code>greeting()</code>, the default value of
-				<code>'stranger'</code> is used, and <code>'Hello, stranger!'</code> is logged to the console.</li>
-		</ul>
+		<p>It’s important to be familiar with the multiple ways of writing functions because you will come across each
+			of these when reading other JavaScript code.</p>
 
 	</div>
 
 	<div rightPanel>
 		<h2>Exercise</h2>
+		<p>
+			Let's change previous exercise to function expression format using Arrow functions.
+		</p>
 		<p>
 			The function <code>makeShoppingList()</code> creates a shopping list based on the items that are passed to
 			the function as arguments.
