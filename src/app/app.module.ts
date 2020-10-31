@@ -13,7 +13,8 @@ import { LessonOneComponent } from "./lessons/lesson-one/lesson-one.component";
 import { LessonTwoComponent } from "./lessons/lesson-two/lesson-two.component";
 import { LessonTemplateComponent } from "./lessons/lesson-template/lesson-template.component";
 import { CodemirrorModule } from "@ctrl/ngx-codemirror";
-import { LessonPrefaceComponent } from './lessons/lesson-preface/lesson-preface.component';
+import { LessonPrefaceComponent } from "./lessons/lesson-preface/lesson-preface.component";
+import { LessonThreeComponent } from "./lessons/lesson-three/lesson-three.component";
 
 @NgModule({
   imports: [
@@ -32,7 +33,8 @@ import { LessonPrefaceComponent } from './lessons/lesson-preface/lesson-preface.
     LessonTemplateComponent,
     LessonTwoComponent,
     ExerciseCodemirrorComponent,
-    LessonPrefaceComponent
+    LessonPrefaceComponent,
+    LessonThreeComponent
   ],
   bootstrap: [AppComponent]
 })
