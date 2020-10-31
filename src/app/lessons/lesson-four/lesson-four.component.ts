@@ -110,7 +110,7 @@ export class LessonFourComponent {
 
   onExerciseFinish() {
     // emit value to code school component
-    this.exerciseFinish.emit(LESSON_THREE_INDEX);
+    this.exerciseFinish.emit(LESSON_FOUR_INDEX);
   }
 }
 
