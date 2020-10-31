@@ -4,12 +4,18 @@ import {
   CM_VIEWONLY_OPTIONS
 } from "../../../model/ui_constants";
 import { ANSWER_STATUS } from "../../../model/ui_model";
+import { getResultFromFunctionString } from "../../../shared/functionStringBuilder";
 
 const LESSON_THREE_INDEX = 3;
 const INITIAL_EXERCISE = `
+/**
+ * Examples:
+ * makeShoppingList() should return string 'Remember to buy milk, bread, eggs'
+ * makeShoppingList('soy milk', 'noodle', 'bacon') should return string 'Remember to buy soy milk, noodle, bacon'
+ */
+function makeShoppingList() {
 
-
-
+}
 `;
 
 @Component({
@@ -53,8 +59,9 @@ greeting() // Output: Hello, stranger!
   /** Input for exercise */
   exerciseContent = INITIAL_EXERCISE;
 
+  // do not use string inteporlation format, which makes it not working
   solutionContent =
-    "const myName = 'hello';const myCity = 'world';console.log(`My name is ${myName}. My favorite city is ${myCity}.`);";
+    "function makeShoppingList(item1 = 'milk', item2 = 'bread', item3 = 'eggs') {return `Remember to buy ${item1},${item2}, ${item3}`;}";
 
   /** Exercise related logic */
   get isCorrect(): boolean {
@@ -67,28 +74,35 @@ greeting() // Output: Hello, stranger!
 
   submit() {
     this.clearPrevious();
-    if (
-      this.exerciseContent.indexOf("`") > 0 &&
-      this.exerciseContent.indexOf("console.log(") > 0 &&
-      this.exerciseContent.indexOf("`My name is ${myName}") > 0 &&
-      this.exerciseContent.indexOf("My favorite city is ${myCity}") > 0
-    ) {
+    let actualAns = getResultFromFunctionString(this.exerciseContent, []);
+    let solutionAns = getResultFromFunctionString(this.solutionContent, []);
+
+    if (actualAns !== solutionAns) {
+      this.answerStatus = ANSWER_STATUS.WRONG;
+      this.errorMessage = `
+      Expected result is: ${solutionAns} while
+      Actual result is: ${actualAns}`;
+    }
+
+    actualAns = getResultFromFunctionString(this.exerciseContent, [
+      "soy milk",
+      "noodle",
+      "bacon"
+    ]);
+    solutionAns = getResultFromFunctionString(this.solutionContent, [
+      "soy milk",
+      "noodle",
+      "bacon"
+    ]);
+
+    if (actualAns !== solutionAns) {
+      this.answerStatus = ANSWER_STATUS.WRONG;
+      this.errorMessage = `
+      Expected result is: ${solutionAns} while
+      Actual result is: ${actualAns}`;
+    } else {
       this.answerStatus = ANSWER_STATUS.CORRECT;
       this.onExerciseFinish();
-    } else {
-      this.answerStatus = ANSWER_STATUS.WRONG;
-      if (this.exerciseContent.indexOf("`") === -1) {
-        this.errorMessage = "Make sure to use ` symbol, not ' or \".";
-      } else if (this.exerciseContent.indexOf("console.log(") === -1) {
-        this.errorMessage = "Did you forgot using console.log()?";
-      } else if (this.exerciseContent.indexOf("${myName}") === -1) {
-        this.errorMessage = "Did you use ${myName} in the console.log()?";
-      } else if (this.exerciseContent.indexOf("${myCity}") === -1) {
-        this.errorMessage = "Did you use ${myCity} in the console.log()?";
-      } else {
-        this.errorMessage =
-          "Make sure the content is My name is NAME. My favorite city is CITY";
-      }
     }
   }
 

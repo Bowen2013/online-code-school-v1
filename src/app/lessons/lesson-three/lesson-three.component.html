@@ -47,13 +47,20 @@
 
 	<div rightPanel>
 		<h2>Exercise</h2>
+		<p>
+			The function <code>makeShoppingList()</code> creates a shopping list based on the items that are passed to
+			the function as arguments.
+
+			Imagine that you always purchase milk, bread, and eggs every time you go shopping for groceries. To make
+			creating a grocery list easier, let’s assign default values to the parameters in
+			<code>makeShoppingList()</code>.
+
+			Change the parameters of makeShoppingList() into default parameters :
+		</p>
 		<ol>
-			<li>Create a variable called <code>myName</code> and assign it your name.</li>
-			<li>Create a variable called <code>myCity</code> and assign it your favorite city’s name.</li>
-			<li>Use a single template literal to interpolate your variables into the sentence below. Use console.log()
-				to print your sentence to the console in the following format:
-				<code>My name is NAME. My favorite city is CITY</code>. Replace NAME and CITY in the string above by
-				interpolating the values saved to myName and myCity.</li>
+			<li>Assign ‘milk’ as the default value of item1.</li>
+			<li>Assign ‘bread’ as the default value of item2.</li>
+			<li>Assign ‘eggs’ as the default value of item3.</li>
 		</ol>
 
 		<ngx-codemirror [(ngModel)]="exerciseContent" [options]="exerciseOptions">
