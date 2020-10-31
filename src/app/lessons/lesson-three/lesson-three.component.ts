@@ -7,15 +7,17 @@ import { ANSWER_STATUS } from "../../../model/ui_model";
 import { getResultFromFunctionString } from "../../../shared/functionStringBuilder";
 
 const LESSON_THREE_INDEX = 3;
-const INITIAL_EXERCISE = `
+const INITIAL_EXERCISE = `function makeShoppingList() {
+
+
+}
+
 /**
  * Examples:
  * makeShoppingList() should return string 'Remember to buy milk, bread, eggs'
  * makeShoppingList('soy milk', 'noodle', 'bacon') should return string 'Remember to buy soy milk, noodle, bacon'
  */
-function makeShoppingList() {
 
-}
 `;
 
 @Component({
@@ -61,7 +63,7 @@ greeting() // Output: Hello, stranger!
 
   // do not use string inteporlation format, which makes it not working
   solutionContent =
-    "function makeShoppingList(item1 = 'milk', item2 = 'bread', item3 = 'eggs') {return `Remember to buy ${item1},${item2}, ${item3}`;}";
+    "function makeShoppingList(item1 = 'milk', item2 = 'bread', item3 = 'eggs') {return `Remember to buy ${item1}, ${item2}, ${item3}`;}";
 
   /** Exercise related logic */
   get isCorrect(): boolean {

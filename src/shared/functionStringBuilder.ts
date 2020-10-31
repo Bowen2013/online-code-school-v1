@@ -11,6 +11,9 @@
  * }
  * call(null) => foo(a, b)
  * apply(null, args) => invoke foo with args
+ *
+ * Things to note:
+ * the fnString should not have newline or space
  */
 export function getResultFromFunctionString(fnString, args) {
   const wrapper = s => `{return ${fnString}}`;
