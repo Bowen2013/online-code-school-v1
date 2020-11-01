@@ -12,7 +12,7 @@
 				</lesson-preface>
 			</ng-container>
 
-			<ng-container *ngIf="currentLessonIndex === -1">
+			<ng-container *ngIf="currentLessonIndex === 1">
 				<lesson-one (exerciseFinish)="onExerciseFinish($event)">
 				</lesson-one>
 			</ng-container>
@@ -29,7 +29,7 @@
 				<lesson-four (exerciseFinish)="onExerciseFinish($event)"></lesson-four>
 			</ng-container>
 
-			<ng-container *ngIf="currentLessonIndex === 1">
+			<ng-container *ngIf="currentLessonIndex === 5">
 				<lesson-five (exerciseFinish)="onExerciseFinish($event)"></lesson-five>
 			</ng-container>
 		</div>

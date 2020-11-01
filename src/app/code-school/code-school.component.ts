@@ -53,7 +53,9 @@ export class CodeSchoolComponent {
   }
 
   finishButtonClicked() {
-    alert("showing post survey link.");
+    alert(
+      "Good job on finishing the tutorial! Please try the quiz again. (Will change this to a separate page)"
+    );
   }
 
   onExerciseFinish(event: number) {

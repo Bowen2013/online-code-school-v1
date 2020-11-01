@@ -3,6 +3,8 @@ import { BrowserModule } from "@angular/platform-browser";
 import { RouterModule } from "@angular/router";
 import { ReactiveFormsModule } from "@angular/forms";
 import { MatButtonModule } from "@angular/material/button";
+import { MatInputModule } from "@angular/material/input";
+
 import { FormsModule } from "@angular/forms";
 
 import { AppComponent } from "./app.component";
@@ -23,6 +25,7 @@ import { LessonFiveComponent } from "./lessons/lesson-five/lesson-five.component
     BrowserModule,
     ReactiveFormsModule,
     MatButtonModule,
+    MatInputModule,
     FormsModule,
     CodemirrorModule,
     RouterModule.forRoot([{ path: "", component: CodeSchoolComponent }])

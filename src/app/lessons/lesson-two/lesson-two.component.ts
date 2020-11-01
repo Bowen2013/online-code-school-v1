@@ -35,7 +35,8 @@ console.log(\`I own a pet \${myPet}.\`);
   /** Input for exercise */
   exerciseContent = INITIAL_EXERCISE;
 
-  solutionContent = "const myName = 'hello';const myCity = 'world';console.log(`My name is ${myName}. My favorite city is ${myCity}.`);";
+  solutionContent =
+    "const myName = 'hello';const myCity = 'world';console.log(`My name is ${myName}. My favorite city is ${myCity}.`);";
 
   /** Exercise related logic */
   get isCorrect(): boolean {
@@ -49,10 +50,10 @@ console.log(\`I own a pet \${myPet}.\`);
   submit() {
     this.clearPrevious();
     if (
-      this.exerciseContent.indexOf("`") > 0 &&
-      this.exerciseContent.indexOf("console.log(") > 0 &&
-      this.exerciseContent.indexOf("`My name is ${myName}") > 0 &&
-      this.exerciseContent.indexOf("My favorite city is ${myCity}") > 0
+      this.exerciseContent.indexOf("`") > -1 &&
+      this.exerciseContent.indexOf("console.log(") > -1 &&
+      this.exerciseContent.indexOf("`My name is ${myName}") > -1 &&
+      this.exerciseContent.indexOf("My favorite city is ${myCity}") > -1
     ) {
       this.answerStatus = ANSWER_STATUS.CORRECT;
       this.onExerciseFinish();

@@ -34,24 +34,59 @@ export class LessonFiveComponent {
   errorMessage = "";
 
   /** View only code mirror */
-  viewOnlyContent1 = `const calculateArea = function(width, height) {
-    const area = width * height;
-    return area;
-  }
+  viewOnlyContent1 = `let x = 20,
+let y = 10;
+
+let result = add(x,y);
+console.log(result);
+
+function add(a, b){
+  return a + b;
+}
 `;
 
-  viewOnlyContent2 = `const rectangleArea = (width, height) => {
-  let area = width * height;
-  return area;
-};
+  viewOnlyContent2 = `function add(a, b){
+  return a + b;
+}
+let x = 20,
+let y = 10;
+
+let result = add(x,y);
+console.log(result); // Outputs 30
+`;
+
+  viewOnlyContent3 = `let x = 20,
+let y = 10;
+
+let result = add(x,y);
+console.log(result);
+
+let add = function(x, y) {
+return x + y;
+}
 `;
 
   /** Input for exercise */
-  exerciseContent = INITIAL_EXERCISE;
+  exerciseContent1 = `greeting();
 
-  // do not use string inteporlation format, which makes it not working
-  solutionContent =
-    "function makeShoppingList(item1 = 'milk', item2 = 'bread', item3 = 'eggs') {return `Remember to buy ${item1}, ${item2}, ${item3}`;}";
+let greeting = function() {
+  console.log('hello world');
+}  
+`;
+  exerciseContent2 = `greeting();
+
+function greeting() {
+  return helloWorld();
+}  
+
+function helloWorld() {
+  console.log('hello world');
+}
+
+`;
+
+  exerciseAnswer1 = "";
+  exerciseAnswer2 = "";
 
   /** Exercise related logic */
   get isCorrect(): boolean {
@@ -64,26 +99,25 @@ export class LessonFiveComponent {
 
   submit() {
     this.clearPrevious();
-
     if (
-      (this.exerciseContent.indexOf("makeShoppingList =") > 0 ||
-        this.exerciseContent.indexOf("makeShoppingList=") > 0) &&
-      this.exerciseContent.indexOf("=>") > 0
+      this.exerciseAnswer1.indexOf("greeting is not defined") > -1 &&
+      this.exerciseAnswer2.indexOf("hello world") > -1
     ) {
       this.answerStatus = ANSWER_STATUS.CORRECT;
       this.onExerciseFinish();
-    } else if (this.exerciseContent.indexOf("=>") === -1) {
+    } else if (this.exerciseAnswer1.indexOf("greeting is not defined") === -1) {
       this.answerStatus = ANSWER_STATUS.WRONG;
-      this.errorMessage = "Be sure to use the Arrows function format.";
+      this.errorMessage = "First exercise is not correct";
     } else {
       this.answerStatus = ANSWER_STATUS.WRONG;
-      this.errorMessage = "Be sure to use the function expression format.";
+      this.errorMessage = "Second exercise is not correct";
     }
   }
 
   reset() {
     this.clearPrevious();
-    this.exerciseContent = INITIAL_EXERCISE;
+    this.exerciseAnswer1 = "";
+    this.exerciseAnswer2 = "";
   }
 
   clearPrevious() {

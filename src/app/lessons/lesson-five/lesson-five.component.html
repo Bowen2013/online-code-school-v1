@@ -1,58 +1,67 @@
 <lesson-template>
 
 	<div leftPanel>
-		<h2>Functions continued</h2>
+		<h2>Functions hoisting</h2>
 		<p>
-			Another way to define a function is to use a function expression. To define a function inside an expression,
-			we can use the <code>function</code> keyword. In a function expression, the function name is usually
-			omitted. A function with no name is called an anonymous function. A function expression is often stored in a
-			variable in order to refer to it.
+			The JavaScript engine hoists the function declarations. It moves the function declarations to the top
+			of the script. For example:
 		</p>
-		<p>Consider the following function expression:</p>
 
 		<ngx-codemirror class="viewonly-1" [(ngModel)]="viewOnlyContent1" [options]="viewOnlyOptions">
 		</ngx-codemirror>
 
-		<p>To declare a function expression:</p>
-
-		<ol>
-			<li>Declare a variable to make the variable’s name be the name, or identifier, of your function. Since the
-				release of ES6, it is common practice to use <code>const</code> as the keyword to declare the variable.
-			</li>
-			<li>Assign as that variable’s value an anonymous function created by using the <code>function</code> keyword
-				followed by a set of parentheses with possible parameters. Then a set of curly braces that contain the
-				function body.</li>
-		</ol>
-
-		<p>
-			ES6 introduced arrow function syntax, a shorter way to write functions by using the special “fat arrow”
-			<code>() =></code> notation.
-		</p>
-
-		<p>
-			Arrow functions remove the need to type out the keyword <code>function</code> every time you need to create
-			a function.
-			Instead, you first include the parameters inside the <code>( )</code> and then add an arrow => that points
-			to the function body surrounded in <code>{{bracketVariable}}</code> like this:
-		</p>
+		<p>In this example, we called the <code>add()</code> function before defining it. The above code is equivalent
+			to the following:</p>
 
 		<ngx-codemirror class="viewonly-2" [(ngModel)]="viewOnlyContent2" [options]="viewOnlyOptions">
 		</ngx-codemirror>
 
-		<p>It’s important to be familiar with the multiple ways of writing functions because you will come across each
-			of these when reading other JavaScript code.</p>
+		<p>During the creation phase of the execution context, the JavaScript engine places the <code>add()</code>
+			function declaration in the heap memory. To be precise, the JavaScript engine creates an object of the
+			Function type and a function reference called add that refers to the function object.</p>
 
+		<br>
+		<br>
+		<p>
+			The following example changes the add from a regular function to a function expression:
+		</p>
+
+		<ngx-codemirror class="viewonly-3" [(ngModel)]="viewOnlyContent3" [options]="viewOnlyOptions">
+		</ngx-codemirror>
+
+		<p>If you execute the code, the following error will occur: <code>add is not a function</code></p>
+
+		<p>During the creation phase of the global execution context, the JavaScript Engine creates the <code>add</code>
+			variable in
+			the memory and initializes its value to undefined. When executing the following code, the add is undefined,
+			hence, it isn’t a function:</p>
+
+		<p>The add variable is assigned to an anonymous function only during the execution phase of the global execution
+			context.</p>
+
+		<p>Summary</p>
+		<ul>
+			<li>JavaScript hoisting occurs during the creation phase of the execution context that moves the variable
+				and function declarations to the top of the script.</li>
+			<li>Function expressions and arrow functions aren’t hoisted.</li>
+		</ul>
 	</div>
 
 	<div rightPanel>
 		<h2>Exercise</h2>
 		<p>
-			Let's change previous exercise to function expression format using Arrow functions. (Just change the 1st
-			line and leave the function body untouched.)
+			What's the output for below code snippet?
 		</p>
 
-		<ngx-codemirror [(ngModel)]="exerciseContent" [options]="exerciseOptions">
+		<ngx-codemirror [(ngModel)]="exerciseContent1" [options]="viewOnlyOptions">
 		</ngx-codemirror>
+
+		<input matInput #exercise1 placeholder="Enter your exercise 1 answer here" [(ngModel)]="exerciseAnswer1">
+
+		<ngx-codemirror [(ngModel)]="exerciseContent2" [options]="viewOnlyOptions">
+		</ngx-codemirror>
+
+		<input matInput #exercise1 placeholder="Enter your exercise 2 answer here" [(ngModel)]="exerciseAnswer2" >
 
 		<button
         color="primary"

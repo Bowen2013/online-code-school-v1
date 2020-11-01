@@ -66,8 +66,8 @@ export class LessonFourComponent {
     this.clearPrevious();
 
     if (
-      (this.exerciseContent.indexOf("makeShoppingList =") > 0 ||
-        this.exerciseContent.indexOf("makeShoppingList=") > 0) &&
+      (this.exerciseContent.indexOf("makeShoppingList =") > -1 ||
+        this.exerciseContent.indexOf("makeShoppingList=") > -1) &&
       this.exerciseContent.indexOf("=>") > 0
     ) {
       this.answerStatus = ANSWER_STATUS.CORRECT;
