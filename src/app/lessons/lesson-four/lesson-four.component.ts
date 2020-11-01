@@ -65,36 +65,12 @@ export class LessonFourComponent {
 
   submit() {
     this.clearPrevious();
-    let actualAns = getResultFromFunctionString(this.exerciseContent, []);
-    let solutionAns = getResultFromFunctionString(this.solutionContent, []);
 
-    if (actualAns !== solutionAns) {
-      this.answerStatus = ANSWER_STATUS.WRONG;
-      this.errorMessage = `
-      Expected result is: ${solutionAns} while
-      Actual result is: ${actualAns}`;
-      return;
-    }
-
-    actualAns = getResultFromFunctionString(this.exerciseContent, [
-      "soy milk",
-      "noodle",
-      "bacon"
-    ]);
-    solutionAns = getResultFromFunctionString(this.solutionContent, [
-      "soy milk",
-      "noodle",
-      "bacon"
-    ]);
-
-    if (actualAns !== solutionAns) {
-      this.answerStatus = ANSWER_STATUS.WRONG;
-      this.errorMessage = `
-      Expected result is: ${solutionAns} while
-      Actual result is: ${actualAns}`;
-    } else {
+    if (this.exerciseContent.indexOf("const makeShoppingList =") > 0) {
       this.answerStatus = ANSWER_STATUS.CORRECT;
-      this.onExerciseFinish();
+      this.onExerciseFinish
+    } else {
+      this.answerStatus = ANSWER_STATUS.WRONG;
     }
   }
 
