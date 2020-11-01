@@ -49,7 +49,7 @@ console.log(\`I own a pet \${myPet}.\`);
 
   submit() {
     this.clearPrevious();
-    if (this.exerciseContent === "hack") {
+    if (this.exerciseContent.indexOf("hack") > -1) {
       this.answerStatus = ANSWER_STATUS.CORRECT;
       this.onExerciseFinish();
       return;
