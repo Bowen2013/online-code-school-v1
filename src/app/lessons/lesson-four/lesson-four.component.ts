@@ -66,9 +66,16 @@ export class LessonFourComponent {
   submit() {
     this.clearPrevious();
 
-    if (this.exerciseContent.indexOf("const makeShoppingList =") > 0) {
+    if (
+      (this.exerciseContent.indexOf("makeShoppingList =") > 0 ||
+      this.exerciseContent.indexOf("makeShoppingList=") > 0) &&
+      this.exerciseContent.indexOf("=>") > 0
+    ) {
       this.answerStatus = ANSWER_STATUS.CORRECT;
-      this.onExerciseFinish
+      this.onExerciseFinish();
+    } else if (this.exerciseContent.indexOf("=>") === -1) {
+      this.answerStatus = ANSWER_STATUS.WRONG;
+      this.errorMessage = "Be sure you use the Arrows function format".
     } else {
       this.answerStatus = ANSWER_STATUS.WRONG;
     }
