@@ -9,9 +9,9 @@ export class CodeSchoolComponent {
   /* lesson page user currently at */
   currentLessonIndex = 0;
   /* array record which lesson has user finished (not skipped) */
-  finishedLessons = [false, false, false, false, false, false, false];
+  finishedLessons = [false, false, false, false, false, false];
   /* total number of lesson */
-  totalLessonIndex = 6;
+  totalLessonIndex = 5;
 
   canSkipQuestion = false;
 
@@ -31,13 +31,11 @@ export class CodeSchoolComponent {
       return this.currentLessonIndex === this.totalLessonIndex;
     } else {
       // user is on last lesson and it's finished
-      return this.currentLessonIndex === this.totalLessonIndex && this.finishedLessons[this.totalLessonIndex]
+      return (
+        this.currentLessonIndex === this.totalLessonIndex &&
+        this.finishedLessons[this.totalLessonIndex]
+      );
     }
-  }
-
-  // TODO(bowenpan): remove this after we have a real last lesson
-  finishLastLessonDummyButtonClicked() {
-    this.finishedLessons[this.totalLessonIndex] = true;
   }
 
   backButtonClicked() {
@@ -55,7 +53,7 @@ export class CodeSchoolComponent {
   }
 
   finishButtonClicked() {
-    alert('showing post survey');
+    alert("showing post survey link.");
   }
 
   onExerciseFinish(event: number) {

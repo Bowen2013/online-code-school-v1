@@ -25,21 +25,13 @@
 				<lesson-three (exerciseFinish)="onExerciseFinish($event)"></lesson-three>
 			</ng-container>
 
-			<ng-container *ngIf="currentLessonIndex === 1">
+			<ng-container *ngIf="currentLessonIndex === 4">
 				<lesson-four (exerciseFinish)="onExerciseFinish($event)"></lesson-four>
 			</ng-container>
 
-			<ng-container *ngIf="currentLessonIndex === 5">
-				<p>hello 6</p>
+			<ng-container *ngIf="currentLessonIndex === 1">
+				<lesson-five (exerciseFinish)="onExerciseFinish($event)"></lesson-five>
 			</ng-container>
-
-			<ng-container *ngIf="currentLessonIndex === 6">
-				<p>hello 7</p>
-				<button mat-button (click)="finishLastLessonDummyButtonClicked()">
-          finish last lesson dummy button
-        </button>
-			</ng-container>
-
 		</div>
 	</div>
 

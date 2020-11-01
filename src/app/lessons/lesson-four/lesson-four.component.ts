@@ -4,7 +4,6 @@ import {
   CM_VIEWONLY_OPTIONS
 } from "../../../model/ui_constants";
 import { ANSWER_STATUS } from "../../../model/ui_model";
-import { getResultFromFunctionString } from "../../../shared/functionStringBuilder";
 
 const LESSON_FOUR_INDEX = 4;
 const INITIAL_EXERCISE = `function makeShoppingList(item1 = 'milk', item2 = 'bread', item3 = 'eggs') {
@@ -68,16 +67,17 @@ export class LessonFourComponent {
 
     if (
       (this.exerciseContent.indexOf("makeShoppingList =") > 0 ||
-      this.exerciseContent.indexOf("makeShoppingList=") > 0) &&
+        this.exerciseContent.indexOf("makeShoppingList=") > 0) &&
       this.exerciseContent.indexOf("=>") > 0
     ) {
       this.answerStatus = ANSWER_STATUS.CORRECT;
       this.onExerciseFinish();
     } else if (this.exerciseContent.indexOf("=>") === -1) {
       this.answerStatus = ANSWER_STATUS.WRONG;
-      this.errorMessage = "Be sure you use the Arrows function format".
+      this.errorMessage = "Be sure to use the Arrows function format.";
     } else {
       this.answerStatus = ANSWER_STATUS.WRONG;
+      this.errorMessage = "Be sure to use the function expression format.";
     }
   }
 

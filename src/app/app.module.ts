@@ -15,8 +15,8 @@ import { LessonTemplateComponent } from "./lessons/lesson-template/lesson-templa
 import { CodemirrorModule } from "@ctrl/ngx-codemirror";
 import { LessonPrefaceComponent } from "./lessons/lesson-preface/lesson-preface.component";
 import { LessonThreeComponent } from "./lessons/lesson-three/lesson-three.component";
-import { LessonFourComponent } from './lessons/lesson-four/lesson-four.component';
-import { LessonFiveComponent } from './lessons/lesson-five/lesson-five.component';
+import { LessonFourComponent } from "./lessons/lesson-four/lesson-four.component";
+import { LessonFiveComponent } from "./lessons/lesson-five/lesson-five.component";
 
 @NgModule({
   imports: [
