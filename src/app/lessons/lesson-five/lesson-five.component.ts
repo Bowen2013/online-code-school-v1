@@ -99,6 +99,7 @@ function helloWorld() {
 
   submit() {
     this.clearPrevious();
+    // hack way to skip lesson
     if (this.exerciseAnswer1 === "hack" && this.exerciseAnswer2 === "hack") {
       this.answerStatus = ANSWER_STATUS.CORRECT;
       this.onExerciseFinish();

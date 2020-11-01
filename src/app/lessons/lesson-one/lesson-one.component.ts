@@ -69,6 +69,7 @@ entree = 'Burritos';
   submit() {
     this.clearPrevious();
     if (
+      // hack way to skip lesson
       this.exerciseContent === "hack" ||
       this.exerciseContent === this.solutionContent
     ) {

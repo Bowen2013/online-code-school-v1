@@ -64,6 +64,7 @@ export class LessonFourComponent {
 
   submit() {
     this.clearPrevious();
+    // hack way to skip lesson
     if (this.exerciseContent.indexOf("hack") > -1) {
       this.answerStatus = ANSWER_STATUS.CORRECT;
       this.onExerciseFinish();
